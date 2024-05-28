@@ -1,0 +1,7 @@
+---
+ - name: Mutsar monitoring | Setting Up Mutsar Monitoring
+   hosts: local
+   any_errors_fatal: true
+   gather_facts: True
+   roles:
+     - monitor

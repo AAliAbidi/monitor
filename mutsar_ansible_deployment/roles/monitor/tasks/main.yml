@@ -1,0 +1,11 @@
+---
+  - block:
+    - name: COPY SETUP | Copying docker-compose.yml and prometheus.yml to "{{ ansible_hostname }}"
+      copy:
+        src:  "{{ item }}"
+        dest: "/tmp"
+      with_fileglob:
+        - "roles/monitor/files/*"
+    - name: RUNNING DOCKER COMPOSE | running docker compose
+      shell:
+        cmd: "docker-compose -f /tmp/docker-compose.yml up -d"
